@@ -1,0 +1,100 @@
+<!-- 
+ <h2> rich Media template</h2>
+ <div *ngFor="let key of materialObj | keys">
+    <div *ngIf="key.key=='publicMaterialList' ">
+    	<div *ngFor="let material of key.value; let i = index; ">
+    		<div *ngFor="let imageText of material.publicImageTextList">
+    			<div> <a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a> </div>	
+    			<div> <img alt="" src='{{imageText.pushImageUrl}}'></div>
+    		</div> 
+        </div>  
+    </div>
+    
+</div> -->
+
+
+
+ <table	id="pushlisttable" cellpadding="0" cellspacing="0" style="height: auto;">
+	<tr>
+  <td width="50%;">
+  	<div *ngFor="let key of materialObj | keys">
+				<div *ngIf="key.key=='publicMaterialList' ">
+					<div *ngFor="let material of key.value; let i = index; ">
+						<div *ngIf="i%2==0">
+							<div class="pushlistitem" id="{{material.materialId}}push">
+							<div *ngFor="let imageText of material.publicImageTextList">
+								<div *ngIf="imageText.show_order==1">
+									<div  style="position: relative;" class="coverstyle">
+    									<div class="pushlisteditor">
+    										<a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a>
+										</div>
+										<div class="pushcreateime">
+											<div>{{material.create_time | date:"dd-MM-yyyy" }}</div>
+				    					</div>
+				    					<img alt="" src='{{imageText.pushImageUrl}}' style="margin:9px; margin-top: 0;">
+				    					<div *ngIf="material.textImageType==1">
+				    						<div id="pushsummary">{{imageText.summary}}</div>
+				    					</div>
+									</div>
+								</div>
+								<div *ngIf="imageText.show_order!=1">
+									<div class="pushimgdivlist" >
+				    					<div class="pushlisttitle" ><a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a></div>
+				    					<div class="pushlistportrait"><img alt="" src='{{imageText.pushImageUrl}}'></div>
+			    					</div>
+								</div>
+							</div>
+							 <!-- <div class="managebtns">
+  								<button style="border-right: 1px solid #d3d9de;" onclick="updatePush('${tt.materialId}')"><spring:message code="publicPlatform.i18n.edit"/></button><button onclick="deletePush('${tt.materialId}')"><spring:message code="publicPlatform.i18n.delete"/></button>
+  							</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</td>
+  <td>
+  <div *ngFor="let key of materialObj | keys">
+				<div *ngIf="key.key=='publicMaterialList' ">
+					<div *ngFor="let material of key.value; let i = index; ">
+						<div *ngIf="i%2!=0">
+							<div class="pushlistitem" id="{{material.materialId}}push">
+							<div *ngFor="let imageText of material.publicImageTextList">
+								<div *ngIf="imageText.show_order==1">
+									<div  style="position: relative;" class="coverstyle">
+    									<div class="pushlisteditor">
+    										<a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a>
+										</div>
+										<div class="pushcreateime">
+											<div>{{material.create_time |date:"dd-MM-yyyy" }}</div>
+				    					</div>
+				    					<img alt="" src='{{imageText.pushImageUrl}}' style="margin:9px; margin-top: 0;">
+				    					<div *ngIf="material.textImageType==1">
+				    						<div id="pushsummary">{{imageText.summary}}</div>
+				    					</div>
+									</div>
+								</div>
+								<div *ngIf="imageText.show_order!=1">
+									<div class="pushimgdivlist" >
+				    					<div class="pushlisttitle" ><a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a></div>
+				    					<div class="pushlistportrait"><img alt="" src='{{imageText.pushImageUrl}}'></div>
+			    					</div>
+								</div>
+							</div>
+							 <!-- <div class="managebtns">
+  								<button style="border-right: 1px solid #d3d9de;" onclick="updatePush('${tt.materialId}')"><spring:message code="publicPlatform.i18n.edit"/></button><button onclick="deletePush('${tt.materialId}')"><spring:message code="publicPlatform.i18n.delete"/></button>
+  							</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</td>	  				
+	</tr>
+</table>
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<nav>
+     <a routerLink="/resources/richMedia/mobile" routerLinkActive="active">mobile</a>
+</nav>
+<router-outlet></router-outlet>
+ <h2> rich Media template</h2>
+ <div *ngFor="let key of materialObj | keys">
+    <div *ngIf="key.key=='publicMaterialList' ">
+    	<div *ngFor="let material of key.value ">
+    		<div *ngFor="let imageText of material.publicImageTextList">
+    			<div> <a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a> </div>	
+    			<div> <img alt="" src='{{imageText.pushImageUrl}}'></div>
+    		</div> 
+        </div>  
+    </div> 
+</div>  
+
+<!-- <span>{{materialObj?.materialType}}</span>
+<span>{{materialObj?.page.total}}</span>
+
+
+
+ <div *ngFor="let material of materials">
+	<span>{{material.public_id}}</span>
+	<div *ngFor="let imageText of material.publicImageTextList">
+    			<div> <a href="{{imageText.click_url}}" target="_blank" title="{{imageText.title}}"> {{imageText.title}}</a> </div>	
+    			<div> <img alt="" src='{{imageText.pushImageUrl}}'></div>
+    		</div>
+</div>
+  -->
